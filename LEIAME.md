@@ -58,6 +58,28 @@ spring.h2.console.path=/h2
 Obs.:
 - Por padrão, o usename seria "sa" e a senha "", e o console do h2 estaria desativado.
 
+4. Criar classe AssociatedEntity:
+- no pacote `entities`;
+- com atributos UUID id, String name;
+- correspondente a tabela de nome `ASSOCIATEDS`.
+
+5. Criar classe MainEntity:
+- no pacote `entities`;
+- com atributos UUID id, String name, String description e AssociatedEntity associated;
+- correspondente a tabela de nome `MAINS`.
+
+![Image-05-UML-Classes-Entities](images/Image-05-UML-Classes-Entities.png)
+
+Obs.: Ao criar classes que representam entidades do banco de dados:
+- anotá-las com `@Entity`, `@Table(name="...")` para mapear entidade;
+- anotá-las com `@Data`, `@Builder`, `@NoArgsConstructor`, `@AllArgsConstructor` para usar o Lombok;
+- adicionar atributo `UUID id` anotado com `@Id` e `@GeneratedValue(strategy = GenerationType.UUID)`;
+- configurar relacionamentos com `@ManyToOne`, `@OneToMany` ou `@OneToOne` em atributos que são objetos;
+- configurar as outras colunas com `@Column` e talvez algum validador como `@NotBlank` ou `@NotNull`;
+- logar no console do H2 e verificar se as tabelas foram criadas corretamente:
+
+![Image-06-ConsoleH2-Tables](images/Image-06-ConsoleH2-Tables.png)
+
 
 ## Referências
 Spring - Guides - Building a GraphQL service:
