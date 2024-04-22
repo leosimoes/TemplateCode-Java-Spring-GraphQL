@@ -80,6 +80,25 @@ Note: When creating classes that represent database entities:
 
 ![Image-06-ConsoleH2-Tables](images/Image-06-ConsoleH2-Tables.png)
 
+6. Create tables from SQL script (not from Hibernate):
+- run the application with `spring.jpa.hibernate.ddl-auto=create-drop` in `application.properties`;
+- execute the command `SCRIPT` or (`SCRIPT TO 'D:/schema.sql'`) to obtain SQL code for creating tables;
+- place the content of the previous step in `src/main/resources/schema.sql`;
+- run the application with `spring.jpa.hibernate.ddl-auto=none` and
+  `spring.jpa.defer-datasource-initialization=true` in `application.properties`;
+
+```properties
+# spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.defer-datasource-initialization=true
+spring.sql.init.mode=always
+```
+
+- (optional) configure the `schema.sql` file path in `application.properties`:
+  * `spring.sql.init.schema-locations=classpath:/schema.sql`.
+
+![Image-07-ConsoleH2-BackupSQL](images/Image-07-ConsoleH2-BackupSQL.png)
+
 
 ## References
 Spring - Guides - Building a GraphQL service:
