@@ -25,6 +25,39 @@ The project development steps were:
 - (optional) configure the `banner.txt` file path in `application.properties`:
   * `spring.banner.location=classpath:/banner.txt`.
 
+3. Configure the H2 database:
+- In `build.gradle` configure according to the desired type of use:
+* `implementation 'com.h2database:h2'`;
+* `runtimeOnly 'com.h2database:h2'`;
+* `testImplementation 'com.h2database:h2'`;
+- In `application.properties`:
+
+```properties
+# ================================================================
+#                   APPLICATION
+# ================================================================
+spring.application.name=TemplateCode-Java-Spring-GraphQL
+# spring.banner.location=classpath:/banner.txt
+# ================================================================
+#                   DATASOURCE - H2 DATABASE
+# ================================================================
+spring.datasource.url=jdbc:h2:mem:proddb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=leo
+spring.datasource.password=senha
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+```
+
+![Image-03-Terminal-Run](images/Image-03-Terminal-Run.png)
+
+- test access to the H2 console at `http://localhost:8080/h2/`:
+
+![Image-04-B-ConsoleH2](images/Image-04-B-ConsoleH2.png)
+
+Note:
+- By default, the usename would be "sa" and the password "", and the h2 console would be disabled.
+
 
 ## References
 Spring - Guides - Building a GraphQL service:
