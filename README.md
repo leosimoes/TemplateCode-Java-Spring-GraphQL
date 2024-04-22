@@ -99,6 +99,21 @@ spring.sql.init.mode=always
 
 ![Image-07-ConsoleH2-BackupSQL](images/Image-07-ConsoleH2-BackupSQL.png)
 
+7. Create `AssociatedRepository` and `MainRepository` interfaces:
+- in the `repositories` package;
+- annotated with `@Repository`;
+- extends `JPARepository`;
+- `AssociatedRepository` has method declarations:
+  * `Boolean existsByNameEqualsIgnoreCase(String name);`
+  * `Optional<MainEntity> findByNameEqualsIgnoreCase(String name);`
+- `MainRepository` has method declarations:
+  * `Boolean existsByNameEqualsIgnoreCase(String name);`
+  * `Optional<MainEntity> findByNameEqualsIgnoreCase(String name);`
+  * `List<MainEntity> findByDescriptionIsLikeIgnoreCase(String description);`
+  * `List<MainEntity> findByAssociated_Name(String associated_name);`
+
+![Image-08-UML-Interfaces-Repositories](images/Image-08-UML-Interfaces-Repositories.png)
+
 
 ## References
 Spring - Guides - Building a GraphQL service:
