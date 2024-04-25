@@ -201,6 +201,21 @@ type Mutation {
 
 ![Image-11-UML-Services](images/Image-11-UML-Services.png)
 
+12. Create controller layer:
+- create `controllers` package;
+- add `MainController` and `AssociatedController` classes:
+  * annotated with `@Controller`;
+  * have an attribute for service;
+  * have a constructor annotated with `@Autowired` and with service as a parameter;
+  * its methods:
+    * are annotated with `@QueryMapping` or `@MutationMapping`;
+    * has names corresponding to those in `schema.graphqls`;
+    * its parameters are annotated with `@Argument`;
+    * has parameter names corresponding to those in `schema.graphqls`;
+    * input and output objects are from classes in the `dtos` package.
+
+![Image-12-UML-Controllers](images/Image-12-UML-Controllers.png)
+
 
 ## References
 Spring - Guides - Building a GraphQL service:

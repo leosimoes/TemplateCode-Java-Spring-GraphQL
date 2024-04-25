@@ -201,6 +201,21 @@ type Mutation {
 
 ![Image-11-UML-Services](images/Image-11-UML-Services.png)
 
+12. Criar camada de controller:
+- criar pacoter `controllers`;
+- adicionar classes `MainController` e `AssociatedController`:
+  * anotadas com `@Controller`;
+  * possuem um atributo para a service;
+  * possuem um construtor anotado com `@Autowired` e com a service como parâmetro;
+  * os seus métodos:
+    * são anotados com `@QueryMapping` ou `@MutationMapping`;
+    * tem nomes correspondentes aos em `schema.graphqls`;
+    * seus parâmetros são anotados com `@Argument`;
+    * tem nomes de parâmetros correspondentes aos em `schema.graphqls`;
+    * os objetos de entrada e saída são das classes no pacote `dtos`.
+
+![Image-12-UML-Controllers](images/Image-12-UML-Controllers.png)
+
 
 ## Referências
 Spring - Guides - Building a GraphQL service:
