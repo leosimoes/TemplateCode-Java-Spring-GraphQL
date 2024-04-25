@@ -114,6 +114,12 @@ spring.sql.init.mode=always
 
 ![Image-08-UML-Interfaces-Repositories](images/Image-08-UML-Interfaces-Repositories.png)
 
+8. Create dtos classes `AssociatedPayload` and `MainPayload`:
+- in the `dtos` package;
+- annotated with `@Data`, `@Builder`, `@NoArgsConstructor`, `@AllArgsConstructor` to use Lombok;
+
+![Image-09-UML-Classes-DTOs](images/Image-09-UML-Classes-DTOs.png)
+
 
 ## References
 Spring - Guides - Building a GraphQL service:
@@ -130,3 +136,9 @@ https://www.baeldung.com/spring-graphql
 
 GraphQL Java - Tutorial - Getting started with Spring for GraphQL:
 https://www.graphql-java.com/tutorials/getting-started-with-spring-boot/
+
+GraphQL.org - Learn:
+https://graphql.org/learn/
+
+Auth0 - Blog - How to Build a GraphQL API with Spring Boot:
+https://auth0.com/blog/how-to-build-a-graphql-api-with-spring-boot/
