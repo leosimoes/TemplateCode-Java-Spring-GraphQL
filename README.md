@@ -189,6 +189,18 @@ type Mutation {
 }
 ```
 
+11. Create service layer:
+- create `services` package;
+- add `AssociatedService` and `MainService` interfaces;
+- add classes `AssociatedServiceImp` and `MainServiceImpl`:
+  * annotated with `@Service`;
+  * have an attribute for the repository and another for the mapper;
+  * have a constructor with one parameter, but which initializes both attributes;
+  * implement the interfaces.
+- the methods `create`, `getByName`, `getAll`, `updateByName`, `deleteByName` are in these classes and interfaces.
+
+![Image-11-UML-Services](images/Image-11-UML-Services.png)
+
 
 ## References
 Spring - Guides - Building a GraphQL service:

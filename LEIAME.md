@@ -189,6 +189,18 @@ type Mutation {
 }
 ```
 
+11. Criar camada de serviço:
+- criar pacote `services`;
+- adicionar interfaces `AssociatedService` e `MainService`;
+- adicionar classes `AssociatedServiceImp` e `MainServiceImpl`:
+    * anotadas com `@Service`;
+    * possuem um atributo para o repository e outro para o mapper;
+    * possuem um construtor com um parâmetro, mas que inicializa os dois atributos;
+    * implementam as interfaces.
+- os métodos `create`, `getByName`, `getAll`, `updateByName`, `deleteByName` estão nestas classes e interfaces.
+
+![Image-11-UML-Services](images/Image-11-UML-Services.png)
+
 
 ## Referências
 Spring - Guides - Building a GraphQL service:
