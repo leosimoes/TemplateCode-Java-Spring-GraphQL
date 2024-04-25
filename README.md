@@ -120,6 +120,28 @@ spring.sql.init.mode=always
 
 ![Image-09-UML-Classes-DTOs](images/Image-09-UML-Classes-DTOs.png)
 
+9. Create mappers between records ("payloads") and classes ("entities"):
+- add addons in `build.gradle`:
+
+```groovy
+// compileOnly 'org.projectlombok:lombok'
+implementation 'org.projectlombok:lombok'
+implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+testAnnotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+```
+
+- create the `AssociatedMapper` and `MainMapper` interfaces:
+  * annotated with `@Mapper`;
+  * with `INSTANCE` attribute;
+  * with 4 methods for conversions between entity and payload, and between list of entities and list of payloads;
+  * `MainMapper` has two helper methods:
+    * `default AssociatedEntity toAssociated(MainPayload payload)`;
+    * `default String map(AssociatedEntity associatedEntity)`;
+
+![Image-10-UML-Interfaces-Mappers](images/Image-10-UML-Interfaces-Mappers.png)
+
 
 ## References
 Spring - Guides - Building a GraphQL service:
