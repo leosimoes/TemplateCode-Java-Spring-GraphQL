@@ -15,6 +15,6 @@ public class MainPayload {
 
     String description;
 
-    String associated;
+    AssociatedPayload associated;
 }
 

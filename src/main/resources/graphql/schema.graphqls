@@ -1,0 +1,35 @@
+type MainOutput {
+    name: String!
+    description: String
+    associated: AssociatedOutput
+}
+
+type AssociatedOutput {
+    name: String!
+}
+
+input MainInput {
+    name: String!
+    description: String
+    associated: AssociatedInput
+}
+
+input AssociatedInput {
+    name: String!
+}
+
+type Query {
+    getAllMain: [MainOutput!]!
+    getMainbyName(name: String!): MainOutput
+    getAllAssociated: [AssociatedOutput!]!
+    getAssociatedbyName(name: String!): AssociatedOutput
+}
+
+type Mutation {
+    createMain(mainInput: MainInput!): MainOutput!
+    updateMain(name: String!, mainInput: MainInput!): MainOutput
+    deleteMain(name: String!): Boolean
+    createAssociated(associatedInput: AssociatedInput!): AssociatedOutput!
+    updateAssociated(name: String!, associatedInput: AssociatedInput!): AssociatedOutput
+    deleteAssociated(name: String!): Boolean
+}

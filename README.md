@@ -142,6 +142,53 @@ implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
 ![Image-10-UML-Interfaces-Mappers](images/Image-10-UML-Interfaces-Mappers.png)
 
+10. `In src/main/resources/graphql`, create `schema.graphqls` or `schema.gqls`:
+- `type Query` must contain all query names;
+- `type Mutation` must contain all creation, update and deletion operations;
+- `AssociatedInput` and `AssociatedOutput` correspond to the `AssociatedPayload` class;
+- `MainInput` and `MainOutput` correspond to the `MainPayload` class.
+- the names of operations and their parameters must be the same as those in the controller,
+  or must be explicitly referenced;
+- the names of data types do not need to be the same as the classes they reference.
+
+```graphql
+type MainOutput {
+    name: String!
+    description: String
+    associated: AssociatedOutput
+}
+
+type AssociatedOutput {
+    name: String!
+}
+
+input MainInput {
+    name: String!
+    description: String
+    associated: AssociatedInput
+}
+
+input AssociatedInput {
+    name: String!
+}
+
+type Query {
+    getAllMain: [MainOutput!]!
+    getMainbyName(name: String!): MainOutput
+    getAllAssociated: [AssociatedOutput!]!
+    getAssociatedbyName(name: String!): AssociatedOutput
+}
+
+type Mutation {
+    createMain(mainInput: MainInput!): MainOutput!
+    updateMain(name: String!, mainInput: MainInput!): MainOutput
+    deleteMain(name: String!): Boolean
+    createAssociated(associatedInput: AssociatedInput!): AssociatedOutput!
+    updateAssociated(name: String!, associatedInput: AssociatedInput!): AssociatedOutput
+    deleteAssociated(name: String!): Boolean
+}
+```
+
 
 ## References
 Spring - Guides - Building a GraphQL service:
