@@ -4,6 +4,8 @@ Autor: Leonardo Simões
 Modelo de código para uma GraphQL na linguagem Java com Spring Framework e Gradle.
 A aplicação possui dois recursos: MainResource e AssociatedResource.
 
+![Image-13-A-UML-All](images/Image-13-A-UML-All.png)
+
 As anotações usadas foram:
 - `@Autowired` para injetar a dependência de um componente;
 - `@Controller` para definir a classe que recebe e responde as requisições;

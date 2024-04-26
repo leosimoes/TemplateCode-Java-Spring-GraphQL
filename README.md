@@ -4,6 +4,8 @@ Author: Leonardo Simões
 Template Code for a GraphQL in the Java language with Spring Framework and Gradle.
 The APP has two resources: MainResource and AssociatedResource.
 
+![Image-13-A-UML-All](images/Image-13-A-UML-All.png)
+
 The annotations used were:
 - `@Autowired` to inject a component's dependency;
 - `@Controller` to define the class that receives and responds to requests;
