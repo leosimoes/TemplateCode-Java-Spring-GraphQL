@@ -4,6 +4,24 @@ Autor: Leonardo Simões
 Modelo de código para uma GraphQL na linguagem Java com Spring Framework e Gradle.
 A aplicação possui dois recursos: MainResource e AssociatedResource.
 
+As anotações usadas foram:
+- `@Autowired` para injetar a dependência de um componente;
+- `@Controller` para definir a classe que recebe e responde as requisições;
+- `@Service` para as classes que implementam as regras de negócio;
+- `@Repository` para as interfaces que realizam consultas ao banco de dados;
+- `@QueryMapping` para metódos da controller que apenas realizam e retornam uma consulta;
+- `@MutationMapping` para metódos da controller que alteram (criam, atualizam ou excluem) dados;
+- `@SchemaMapping` para realizar consultas, alterações ou definir campos de dados que são objetos;
+- `@Argument` para definir um parâmetro de uma operação da controller.
+- `@Entity` para referenciar entidade no banco de dados;
+- `@Table(name="MAINS")` para definir o nome da tabela no banco de dados;
+- `@Column` para indicar que um atributo é uma coluna do banco de dados;
+- `@ManyToOne` para indicar relacionamento de 1 para N;
+- `@Data` (lombok) para criar getters e setters;
+- `@Builder` (lombok) para criar builder;
+- `@NoArgsConstructor` (lombok) para criar construtor sem argumentos;
+- `@AllArgsConstructor` (lombok) para criar construtor com todos os parâmetros como argumentos.
+
 
 ## Etapas do desenvolvimento
 As etapas de desenvolvimento do projeto foram:

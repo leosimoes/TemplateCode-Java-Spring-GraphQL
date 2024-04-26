@@ -4,6 +4,24 @@ Author: Leonardo Simões
 Template Code for a GraphQL in the Java language with Spring Framework and Gradle.
 The APP has two resources: MainResource and AssociatedResource.
 
+The annotations used were:
+- `@Autowired` to inject a component's dependency;
+- `@Controller` to define the class that receives and responds to requests;
+- `@Service` for classes that implement business rules;
+- `@Repository` for interfaces that perform database queries;
+- `@QueryMapping` for controller methods that only perform and return a query;
+- `@MutationMapping` for controller methods that change (create, update or delete) data;
+- `@SchemaMapping` to perform queries, changes or define data fields that are objects;
+- `@Argument` to define a parameter of a controller operation;
+- `@Entity` to reference entity in the database;
+- `@Table(name="MAINS")` to define the name of the table in the database;
+- `@Column` to indicate that an attribute is a database column;
+- `@ManyToOne` to indicate 1 to N relationship;
+- `@Data` (lombok) to create getters and setters;
+- `@Builder` (lombok) to create builder;
+- `@NoArgsConstructor` (lombok) to create constructor without arguments;
+- `@AllArgsConstructor` (lombok) to create constructor with all parameters as arguments.
+
 
 ## Development steps
 The project development steps were:
